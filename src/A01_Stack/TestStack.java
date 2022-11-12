@@ -1,8 +1,8 @@
 package A01_Stack;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
+
+import static org.testng.AssertJUnit.assertEquals;
 
 
 public class TestStack {
