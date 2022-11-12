@@ -1,6 +1,8 @@
 package A02_Heap;
 
-import java.util.ArrayList;public class TaskHeapArrayList {
+import java.util.ArrayList;
+
+public class TaskHeapArrayList {
 
 	/**
 	 * Internes Task-Array für den Heap
@@ -22,8 +24,8 @@ import java.util.ArrayList;public class TaskHeapArrayList {
 	 * @param t Einzufügender Task
 	 */
 	public void insert(Task t) {
-		// TODO: Your implementation
-
+		tasks.add(t);
+		swim(tasks.size() - 1);
 	}
 
 	/**
@@ -32,8 +34,16 @@ import java.util.ArrayList;public class TaskHeapArrayList {
 	 * @return Task mit kleinster Priorität
 	 */
 	public Task remove() {
-		// TODO: Your implementation
-		return null;
+		if (tasks.size() <= 1)
+			return null;
+
+		Task result = tasks.get(1);
+		tasks.set(1, tasks.get(tasks.size() - 1));
+
+		tasks.remove(tasks.size() - 1);
+		sink(1);
+
+		return result;
 	}
 
 	private void swim(int pos) {
